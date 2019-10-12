@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/' => 'mentors#index'
   get 'mentors/login'
 
   get 'mentors/create'
