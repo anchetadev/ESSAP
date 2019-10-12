@@ -18,4 +18,8 @@ class MentorsController < ApplicationController
 
   def edit
   end
+
+  def index
+    @mentor  = Mentor.all
+  end
 end
