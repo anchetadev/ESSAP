@@ -18,12 +18,16 @@
     <% if current_user %>
       <form action="/sessions/users/<%=current_user.id %>" method="post">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Log Out">
       </form>
     <% end %>
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="/mentors/login">Login Page</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/users">Student Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/mentors/create">New Mentor Page</a>

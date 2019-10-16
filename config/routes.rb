@@ -8,8 +8,10 @@ Rails.application.routes.draw do
 
   post 'mentors/new' => 'mentors#new'
   get 'mentors' => 'mentors#index'
-    # login for students
-    post 'sessions/users/new' => 'sessions#create'
-    delete 'sessions/users/:id' => 'sessions#destroy'
+  # login for students
+  delete 'sessions/users/:id' => 'sessions#destroy'
+  get  'sessions/users' => 'sessions#new'
+  post 'sessions/users/new' => 'sessions#create'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
