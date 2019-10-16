@@ -3,7 +3,7 @@
 </div>
 <div class="container">
     <form method="POST" action="/mentors/new">
-    <input type='hidden' name="authenticity_token" value="<%=form_authenticity_token%>">
+    <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Full Name" name="name">
         </div>
@@ -22,4 +22,5 @@
         </div>
         <button type="submit" name="Create" class="btn btn-success btn-lg btn-block">Create</button>
     </form>
+    <small class="form-text text-muted"><a href="/mentors/login">Already a Mentor? Sign in here</a></small>
 </div>

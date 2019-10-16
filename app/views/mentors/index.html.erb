@@ -1,0 +1,22 @@
+<div class="jumbotron">
+    <h1 class="text-center">All Mentors</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Admin Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @mentor.each do |m| %>
+    <tr>
+      <td><%= m.name %></td>
+      <td><%= m.email %></td>
+      <td><%= m.admin %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table> 
