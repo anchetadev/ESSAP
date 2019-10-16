@@ -1,0 +1,13 @@
+<div class="jumbotron">
+    <h1 class="container text-center">Student Log In</h1>
+</div>
+<div class="container">
+    <form method="POST" action="/sessions/users/new">
+        <input type='hidden' name="authenticity_token" value="<%=form_authenticity_token%>">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" name="l_email">
+            <input type="password" class="form-control" placeholder="Password" name="l_password">
+            <input type="submit" value="Log In">
+        </div>
+    </form>
+</div>
