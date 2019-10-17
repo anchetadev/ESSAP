@@ -22,6 +22,18 @@
         <input type="submit" value="Log Out">
       </form>
     <% end %>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |e| %>
+        <%= e %>
+      <% end %>
+    <% end %>
+    <% if current_mentor %>
+      <form action="/sessions/mentors/<%=current_mentor.id %>" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+         <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Log Out">
+      </form>
+    <% end %>
     <ul class="nav">
       <li class="nav-item">
         <a class="nav-link" href="/mentors/login">Login Page</a>

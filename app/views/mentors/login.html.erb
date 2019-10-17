@@ -2,13 +2,13 @@
     <h1 class="text-center">Mentor Log In</h1>
 </div>
 <div class="container">
-    <form method="POST" action="/mentors/session" >
+    <form method="POST" action="/mentors/sessions" >
         <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
         <div class="form-group">
-            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email" name="l_email">
         </div>
     <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" name="password">
+        <input type="password" class="form-control" placeholder="Password" name="l_password">
     </div>
     <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
     </form>

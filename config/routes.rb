@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   get 'mentors/create'
 
   get 'mentors/edit'
-
   post 'mentors/new' => 'mentors#new'
   get 'mentors' => 'mentors#index'
-  # login for students
+  # login for students/mentors
   delete 'sessions/users/:id' => 'sessions#destroy'
+  delete 'sessions/mentors/:id' => 'sessions#destroyMentor'
   get  'sessions/users' => 'sessions#new'
   post 'sessions/users/new' => 'sessions#create'
+  post 'mentors/sessions' => 'sessions#createMentor'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
