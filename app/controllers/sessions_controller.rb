@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       return redirect_to "/"
     else
       flash[:errors] = ["Invalid Combination"]
-      return redirect_to '/session/users/login'
+      return redirect_to '/sessions/users/login'
     end
     # if authentication is true 
       #  save user id to session
