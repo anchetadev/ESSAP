@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   get  'sessions/users' => 'sessions#new'
   post 'sessions/users/new' => 'sessions#create'
   post 'mentors/sessions' => 'sessions#createMentor'
+  # register new students
+  get 'users/create'
+
+  get 'users/edit'
+
+  get 'users/show'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
