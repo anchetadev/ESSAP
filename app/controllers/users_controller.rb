@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def create
     # if mentor is logged in and is an admin they can create new students
-    puts Mentor.all
-    @current = Mentor.find(session[:mentor_id]) || nil
+    if !current_mentor || current_mentor.admin != true
+      return redirect_to "/mentors/login"
+    end
+
     if @current.admin == false || nil
       return redirect_to "/mentors/login"
     else
