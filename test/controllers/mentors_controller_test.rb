@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class MentorsControllerTest < ActionDispatch::IntegrationTest
   test "should get login" do
@@ -15,5 +15,4 @@ class MentorsControllerTest < ActionDispatch::IntegrationTest
     get mentors_edit_url
     assert_response :success
   end
-
 end

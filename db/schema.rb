@@ -16,35 +16,35 @@ ActiveRecord::Schema.define(version: 20191027232225) do
   enable_extension "plpgsql"
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "note"
-    t.date     "date"
+    t.string "note"
+    t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
   end
 
   create_table "mentors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "user_id"
-    t.boolean  "admin",           default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "user_id"
+    t.boolean "admin", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_mentors_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "degree"
-    t.string   "major"
-    t.string   "stage"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.integer  "mentor_id"
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "degree"
+    t.string "major"
+    t.string "stage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "mentor_id"
     t.index ["mentor_id"], name: "index_users_on_mentor_id", using: :btree
   end
 
