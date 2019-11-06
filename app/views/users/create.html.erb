@@ -13,30 +13,19 @@
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Degree" name="degree">
         </div>
-        <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">What stage are you in your college search?<span class="caret"></span></button>
-             <ul class="dropdown-menu" name="stage">
-                <li class="dropdown-item">Applied</li>
-                <li class="dropdown-item">Accepted</li>
-                <li class="dropdown-item">Unsure</li>
-            </ul>
-        </div>
-
-         <div class="dropdown">
-            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Choose a mentor<span class="caret"></span></button>
-             <ul class="dropdown-menu" name="mentor">
-             <% @mentor.each do |mentor| %>
-                <li class="dropdown-item" mentor_id=<%= mentor.id %> ><%= mentor.name %></li>
+        <p>Where are they in their college search?</p>
+        <select class="custom-select custom-select-sm" name="stage">
+            <option value="applied">Applied</option>
+            <option value="applying">Applying</option>
+            <option value="accepted">Accepted</option>
+            <option value="unsure">Unsure</option>
+        </select>
+        <p>Choose a mentor</p>
+        <select class="custom-select custom-select-sm" name="assignedMentor">
+            <% @mentor.each do |mentor| %>
+                <option value=<%= mentor.id %> ><%= mentor.name %></option>
              <% end %>
-            </ul>
-        </div>
-
-        <select class="custom-select custom-select-lg mb-3">
-  <option selected>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
-</select>
+        </select>
 
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Email" name="email">

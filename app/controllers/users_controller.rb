@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 
   def new
     # process the post request
-    @assigned = Mentor.find_by(name: params[:mentor]).id
-    @user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], stage: params[:stage], degree: params[:degree], major: params[:major], mentor_id: @assigned)
+    @user = User.create(name: params[:name], email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation], stage: params[:stage], degree: params[:degree], major: params[:major], mentor_id: params[:assignedMentor])
+    return redirect_to "/"
   end
 
   def edit
