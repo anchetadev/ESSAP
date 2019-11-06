@@ -2,7 +2,7 @@
     <h1 class="container text-center">Create a Student</h1>
 </div>
 <div class="container">
-    <form method="POST" action="/mentors/new">
+    <form method="POST" action="/users/create">
     <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Full Name" name="name">
@@ -13,14 +13,31 @@
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Degree" name="degree">
         </div>
-        <div class="form-group">
+        <div class="dropdown">
             <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">What stage are you in your college search?<span class="caret"></span></button>
              <ul class="dropdown-menu" name="stage">
-                <li><a href="#">Applied</a></li>
-                <li><a href="#">Accepted</a></li>
-                <li><a href="#">Unsure</a></li>
+                <li class="dropdown-item">Applied</li>
+                <li class="dropdown-item">Accepted</li>
+                <li class="dropdown-item">Unsure</li>
             </ul>
         </div>
+
+         <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">Choose a mentor<span class="caret"></span></button>
+             <ul class="dropdown-menu" name="mentor">
+             <% @mentor.each do |mentor| %>
+                <li class="dropdown-item" mentor_id=<%= mentor.id %> ><%= mentor.name %></li>
+             <% end %>
+            </ul>
+        </div>
+
+        <select class="custom-select custom-select-lg mb-3">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Email" name="email">
         </div>
