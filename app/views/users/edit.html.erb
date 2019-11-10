@@ -1,2 +1,13 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<div class="container">
+  <form method="POST" action="/users/edit/<%=@user.id%>">
+    <input type="hidden" name="_method" value="patch">
+    <input type='hidden' name="authenticity_token" value="<%=form_authenticity_token%>">
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Enter New Password" name="password"/>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password confirmation" name="password_confirmation"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

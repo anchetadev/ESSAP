@@ -19,15 +19,22 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # if mentor is logged in and is an admin they can create new students
-    @current = Mentor.find(session[:mentor_id])
-    if @current.admin == false || nil
-      return redirect_to "/mentors/login"
+    @user = current_user
+  end
+
+  def update_password
+    @user = User.find(params[:id])
+    if params[:password] == params[:password_confirmation]
+      @user.update(password: params[:password])
     else
-      return render "edit"
+      flash["passwords must match"]
+      return redirect_to "/users/edit/#{params[:id]}"
     end
+    return redirect_to "/"
   end
 
   def show
+    @user = User.find(params[:id])
+    @mentor = Mentor.find(@user.mentor_id)
   end
 end

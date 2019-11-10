@@ -1,5 +1,5 @@
 <div class="jumbotron">
-        <h1 class="text-center">All Mentors</h1>
+        <h1 class="text-center">All Students</h1>
     </div>
     
     <table class="table table-striped">
@@ -12,7 +12,7 @@
       <tbody>
       <% @user.each do |u| %>
         <tr>
-          <td><%= u.name %></td>
+          <td><a href="users/<%= u.id %>"><%= u.name %></a></td>
           <td><%= u.email %></td>
         </tr>
       <% end %>

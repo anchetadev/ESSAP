@@ -1,2 +1,22 @@
-<h1>User#show</h1>
-<p>Find me in app/views/user/show.html.erb</p>
+<h1 class="jumbotron text-center"><%= @user.name %></h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Current Mentor</th>
+            <th scope="col">Degree</th>
+            <th scope="col">Major</th>
+            <th scope="col">Stage</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row"><a href="/mentors/<%=@mentor.id%>"><%= @mentor.name %></a></th>
+            <td><%= @user.degree %></td>
+            <td><%= @user.major %></td>
+            <td><%= @user.stage %></td>
+        </tr>
+        </tbody>
+</table>
+<% if current_user == @user %>
+<button class="btn btn-success"><a href="edit/<%=@user.id%>">Change Password</a></button>
+<% end %>
