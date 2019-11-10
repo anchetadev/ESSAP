@@ -13,7 +13,13 @@
   <tbody>
   <% @mentor.each do |m| %>
     <tr>
-      <td><%= m.name %></td>
+      <td>
+        <% if current_mentor == m %>
+        <a href="/mentors/edit/<%=m.id%>"><%= m.name %></a>
+        <% else %>
+        <%= m.name %>
+        <%end%>
+      </td>
       <td><%= m.email %></td>
       <td><%= m.admin %></td>
     </tr>

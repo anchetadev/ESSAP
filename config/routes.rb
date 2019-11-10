@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "mentors/edit"
   post "mentors/new" => "mentors#new"
   get "mentors" => "mentors#index"
+  get "mentors/edit/:id" => "mentors#edit"
+  patch "mentors/edit/:id" => "mentors#update_password"
   # login for students/mentors
   delete "sessions/users/:id" => "sessions#destroy"
   delete "sessions/mentors/:id" => "sessions#destroyMentor"

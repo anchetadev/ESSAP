@@ -18,6 +18,20 @@ class MentorsController < ApplicationController
   end
 
   def edit
+    @mentor = current_mentor
+  end
+
+  def update_password
+    def update_password
+      @mentor = Mentor.find(params[:id])
+      if params[:password] == params[:password_confirmation]
+        @mentor.update(password: params[:password])
+      else
+        flash["passwords must match"]
+        return redirect_to "/users/edit/#{params[:id]}"
+      end
+      return redirect_to "/"
+    end
   end
 
   def index
