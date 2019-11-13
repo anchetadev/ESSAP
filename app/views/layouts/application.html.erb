@@ -15,44 +15,50 @@
         <%= e %>
       <% end %>
     <% end %>
-    <% if current_user %>
-      <form action="/sessions/users/<%=current_user.id %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Log Out">
-      </form>
-    <% end %>
-    <% if flash[:errors] %>
-      <% flash[:errors].each do |e| %>
-        <%= e %>
-      <% end %>
-    <% end %>
-    <% if current_mentor %>
-      <form action="/sessions/mentors/<%=current_mentor.id %>" method="post">
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Log Out">
-      </form>
-    <% end %>
+ 
     <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="/mentors/login">Login Page</a>
-      </li>
+        <% if current_user %>
+        <form action="/sessions/users/<%=current_user.id %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+           <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log Out">
+        </form>
+        <li class="nav-item">
+            <a class="nav-link" href="/feedback">Log Feedback</a>
+          </li>
+      <% elsif !current_mentor && !current_user %>
       <li class="nav-item">
         <a class="nav-link" href="/sessions/users">Student Login</a>
       </li>
+      <% end %>
+      <% if current_mentor %>
+
       <li class="nav-item">
-        <a class="nav-link" href="/users/create">Create a student</a>
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Admin Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/users/create">Create a Student</a>
+              <a class="dropdown-item" href="/mentors/create">Create a Mentor</a>
+              <a class="dropdown-item" href="/mentors">All Mentors</a>
+              <a class="dropdown-item" href="/users">All Students</a>
+            </div>
+          </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/mentors/create">New Mentor Page</a>
+        <form action="/sessions/mentors/<%=current_mentor.id %>" method="post">
+          <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Log Out">
+        </form>
       </li>
+      <% elsif !current_mentor && !current_user %>
       <li class="nav-item">
-        <a class="nav-link" href="/mentors">All Mentors</a>
+        <a class="nav-link" href="/mentors/login">Mentor Login</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/users">All Students</a>
-      </li>
+      <% end %>
+
     </ul>
     <%= yield %>
   </body>
