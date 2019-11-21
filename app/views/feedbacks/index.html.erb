@@ -1,2 +1,19 @@
-<h1>Feedbacks#index</h1>
-<p>Find me in app/views/feedbacks/index.html.erb</p>
+<div class="jumbotron">
+  <h1 class="text-center">All Feedbacks</h1>
+</div>
+<div class="container">
+  <% @feedbacks.each do |f| %>
+    <div class="card">
+        <% if current_mentor %>
+        <h5 class="card-header"><%= User.find(f.user_id).name %></h5>
+        <% end %>
+        <div class="card-body">
+        <h5 class="card-title"><%= f.date %></h5>
+        <p class="card-text">
+            <%= f.note %>
+        </p>
+        <!-- <a href="#" class="btn btn-primary">Edit</a> -->
+        </div>
+    </div>
+  <% end %>
+</div>

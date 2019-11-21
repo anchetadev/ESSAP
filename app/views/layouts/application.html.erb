@@ -25,7 +25,10 @@
         </form>
         <li class="nav-item">
             <a class="nav-link" href="/feedback">Log Feedback</a>
-          </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/viewFeedback">View all Feedback</a>
+        </li>
       <% elsif !current_mentor && !current_user %>
       <li class="nav-item">
         <a class="nav-link" href="/sessions/users">Student Login</a>
@@ -43,6 +46,8 @@
               <a class="dropdown-item" href="/mentors/create">Create a Mentor</a>
               <a class="dropdown-item" href="/mentors">All Mentors</a>
               <a class="dropdown-item" href="/users">All Students</a>
+              <a class="dropdown-item" href="/feedback">Log Feedback</a>
+              <a class="dropdown-item" href="/viewFeedback">View Feedbacks</a>
             </div>
           </div>
       </li>

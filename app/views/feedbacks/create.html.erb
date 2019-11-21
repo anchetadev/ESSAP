@@ -1,9 +1,31 @@
 <div class="jumbotron">
     <h1 class="text-center">Leave Feedback for a session</h1>
 </div>
-<p>Find me in app/views/feedbacks/create.html.erb</p>
+<div class="container">
+    <form method="POST" action="/feedback">
+    <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+        <p>Enter the date of the session:</p>
+        <div class="form-group">
+            <input type="date"  class="form-control" name="date">
+        </div>
+        <div class="form-group">
+            <textarea type="text" class="form-control" placeholder="Log Details about this Session" name="note"></textarea>
+        </div>
+        <% if current_mentor %>
+            <p>Who is this feedback for?</p>
+            <select class="custom-select custom-select-sm" name="student">
+                <% @student.each do |s| %>
+                    <option value=<%= s.id %> ><%= s.name %></option>
+                <% end %>
+            </select>
+        <% end %>
 
-To do: change relationship between feedback and users table to be
-between mentors and feedbacks instead
+        <button type="submit" name="Create" class="btn btn-success btn-lg btn-block">Submit</button>
+    </form>
+</div>
 
-add form to this page and should be done soon
+<p>Automatically assign the logged in person as either the mentor or student</p>
+<p>if student: mentor will be predetermined and auto once submitted</p>
+<p>Student and their mentor ID logged Automatically</p>
+<p>If mentor: mentor id will be logged they will see a dropdown to pick a student</p>
+<p>Show only their students</p>

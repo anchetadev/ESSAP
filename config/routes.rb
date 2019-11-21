@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   patch "users/edit/:id" => "users#update_password"
 
   get 'feedback' => "feedbacks#create"
-
+  post 'feedback' => "feedbacks#new"
+  get 'viewFeedback' => "feedbacks#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
